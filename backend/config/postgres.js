@@ -6,6 +6,8 @@ const pool = new Pool({
   database: process.env.PG_DATABASE || 'ciphersqlstudio_sandbox',
   user: process.env.PG_USER || 'postgres',
   password: process.env.PG_PASSWORD,
+  // ADD THIS SSL SECTION:
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
