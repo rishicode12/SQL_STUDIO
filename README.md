@@ -1,4 +1,11 @@
-# CipherSQLStudio
+# 🛡️ CipherSQLStudio
+
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18.x-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15.x-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-412991?logo=openai&logoColor=white)](https://openai.com/)
+[![SASS](https://img.shields.io/badge/SASS-Hotpink-ff69b4?logo=sass&logoColor=white)](https://sass-lang.com/)
 
 A browser-based SQL learning platform where students can practice SQL queries against pre-configured assignments with real-time execution and AI-powered hints.
 
@@ -13,6 +20,19 @@ A browser-based SQL learning platform where students can practice SQL queries ag
 - **AI Hint System** — Get contextual hints (not solutions) powered by OpenAI GPT-4o-mini
 - **Auth System** — Register/login to save query attempts
 - **Mobile-first Responsive Design** — Works on 320px → 1400px+
+
+---
+
+## 📸 Product Gallery
+
+
+### 🖥️ Workspace Overview
+![Main Page](https://github.com/rishicode12/SQL_STUDIO/blob/main/Images/Main%20Page.png?raw=true)
+
+### 🌓 Interface & Auth
+| Dark Mode Editor | Sign In | Sign Up |
+|:---:|:---:|:---:|
+| ![Dark Mode](https://github.com/rishicode12/SQL_STUDIO/blob/main/Images/Dark%20Mode.png?raw=true) | ![Sign In](https://github.com/rishicode12/SQL_STUDIO/blob/main/Images/Sign_In%20Page.png?raw=true) | ![Sign Up](https://github.com/rishicode12/SQL_STUDIO/blob/main/Images/Sign_Up%20Page.png?raw=true) |
 
 ---
 
