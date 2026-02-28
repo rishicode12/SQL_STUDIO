@@ -1,0 +1,25 @@
+// ==============================================
+// _editor.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Monaco editor wrapper overrides
+.monaco-wrapper {
+  .monaco-editor {
+    font-family: $font-mono !important;
+  }
+}
+
+.editor-placeholder {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-3;
+  height: 200px;
+  color: var(--color-text-dim);
+  font-size: $font-size-sm;
+  background: var(--color-surface-2);
+  border: 1px dashed var(--color-border);
+  border-radius: $radius-md;
+  @include mono;
+}

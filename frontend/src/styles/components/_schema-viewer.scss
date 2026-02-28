@@ -1,0 +1,104 @@
+// ==============================================
+// _schema-viewer.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.schema-viewer {
+  flex: 1;
+  overflow-y: auto;
+  padding: $space-4;
+  @include scrollbar;
+
+  &__heading {
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-dim);
+    font-weight: 600;
+    margin-bottom: $space-3;
+  }
+}
+
+.schema-table {
+  margin-bottom: $space-5;
+
+  &__name {
+    @include flex-center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: var(--color-accent);
+    @include mono;
+    margin-bottom: $space-2;
+    cursor: pointer;
+
+    &-icon { color: var(--color-text-dim); font-size: $font-size-xs; }
+  }
+
+  &__columns {
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    overflow: hidden;
+  }
+
+  &__col {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: $space-2;
+    padding: $space-2 $space-3;
+    border-bottom: 1px solid rgba($color-border, 0.5);
+    font-size: $font-size-xs;
+    @include mono;
+
+    &:last-child { border-bottom: none; }
+    &:nth-child(even) { background: rgba(var(--color-surface-2-rgb), 0.5); }
+
+    &-name  { color: var(--color-text); }
+    &-type  { color: var(--color-primary); }
+    &-constraint { color: var(--color-text-dim); font-style: italic; }
+  }
+
+  &__sample-toggle {
+    font-size: $font-size-xs;
+    color: var(--color-text-dim);
+    cursor: pointer;
+    padding: $space-2 $space-3;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    border-radius: 0 0 $radius-md $radius-md;
+    transition: $transition-fast;
+
+    &:hover { color: var(--color-primary); background: var(--color-primary-dim); }
+  }
+
+  &__sample {
+    overflow-x: auto;
+    @include scrollbar;
+    margin-top: $space-2;
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+  }
+
+  &__sample-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: $font-size-xs;
+    @include mono;
+
+    th, td {
+      padding: $space-2 $space-3;
+      text-align: left;
+      border-bottom: 1px solid rgba(var(--color-border-rgb), 0.5);
+      white-space: nowrap;
+    }
+
+    th {
+      background: var(--color-surface-2);
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    td { color: var(--color-text); }
+  }
+}

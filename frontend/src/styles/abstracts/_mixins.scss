@@ -1,0 +1,120 @@
+// ==============================================
+// _mixins.scss
+// ==============================================
+@use 'variables' as *;
+
+// --- Responsive breakpoints (mobile-first) ---
+@mixin tablet {
+  @media (min-width: #{$bp-tablet}) { @content; }
+}
+@mixin desktop {
+  @media (min-width: #{$bp-desktop}) { @content; }
+}
+@mixin wide {
+  @media (min-width: #{$bp-wide}) { @content; }
+}
+
+// --- Flex helpers ---
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// --- Card surface ---
+@mixin card($pad: $space-6) {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-lg;
+  padding: $pad;
+}
+
+// --- Code/mono text ---
+@mixin mono {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+}
+
+// --- Scrollbar styling ---
+@mixin scrollbar($thumb: var(--color-border-light), $track: var(--color-surface)) {
+  scrollbar-width: thin;
+  scrollbar-color: $thumb $track;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: 3px;
+  }
+}
+
+// --- Button base ---
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-5;
+  border: none;
+  border-radius: $radius-md;
+  font-family: $font-display;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition-fast;
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 44px; // touch-friendly
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// --- Truncate text ---
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// --- Focus ring ---
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// --- Difficulty badge mixin ---
+@mixin difficulty-color($difficulty) {
+  @if $difficulty == 'easy' {
+    color: $color-easy;
+    background: rgba($color-easy, 0.1);
+    border-color: rgba($color-easy, 0.3);
+  } @else if $difficulty == 'medium' {
+    color: $color-medium;
+    background: rgba($color-medium, 0.1);
+    border-color: rgba($color-medium, 0.3);
+  } @else if $difficulty == 'hard' {
+    color: $color-hard;
+    background: rgba($color-hard, 0.1);
+    border-color: rgba($color-hard, 0.3);
+  }
+}

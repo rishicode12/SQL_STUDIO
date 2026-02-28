@@ -1,0 +1,22 @@
+// ==============================================
+// main.scss - Entry point, imports all partials
+// ==============================================
+
+// Abstracts (no output)
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// Layout
+@use 'layout/base';
+
+// Components
+@use 'components/navbar';
+@use 'components/assignment-list';
+@use 'components/assignment-attempt';
+@use 'components/editor';
+@use 'components/results-panel';
+@use 'components/hint-panel';
+@use 'components/schema-viewer';
+@use 'components/auth';
+@use 'components/buttons';
+@use 'components/loading';

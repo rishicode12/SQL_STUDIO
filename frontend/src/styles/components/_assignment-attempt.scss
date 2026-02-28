@@ -1,0 +1,175 @@
+// ==============================================
+// _assignment-attempt.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.attempt-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+
+  // On mobile, scroll normally
+  @media (max-width: #{$bp-desktop - 1px}) {
+    height: auto;
+    overflow: auto;
+  }
+}
+
+.attempt-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  flex: 1;
+  overflow: hidden;
+
+  @include desktop {
+    grid-template-columns: 360px 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  @include wide {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+// Left panel: question + schema
+.left-panel {
+  @include flex-col;
+  border-right: 1px solid $color-border;
+  overflow: hidden;
+
+  @media (max-width: #{$bp-desktop - 1px}) {
+    border-right: none;
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+// Right panel: editor + results + hints
+.right-panel {
+  @include flex-col;
+  overflow: hidden;
+  min-height: 0;
+}
+
+// --- Question Panel ---
+.question-panel {
+  @include flex-col;
+  gap: $space-4;
+  padding: $space-5;
+  border-bottom: 1px solid $color-border;
+  overflow-y: auto;
+  @include scrollbar;
+
+  &__back {
+    @include flex-center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    cursor: pointer;
+    width: fit-content;
+    padding: $space-2 0;
+    transition: $transition-fast;
+
+    &:hover { color: $color-primary; }
+  }
+
+  &__meta {
+    @include flex-between;
+    gap: $space-3;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: $space-2;
+  }
+
+  &__question {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    line-height: 1.7;
+    background: $color-surface-2;
+    padding: $space-4;
+    border-radius: $radius-md;
+    border-left: 3px solid $color-primary;
+  }
+}
+
+// --- Tabs ---
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+
+  &__tab {
+    flex: 1;
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $color-text-muted;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: $transition-fast;
+    min-height: 44px;
+
+    &--active {
+      color: $color-primary;
+      border-bottom-color: $color-primary;
+    }
+
+    &:hover:not(&--active) {
+      color: $color-text;
+      background: $color-surface-2;
+    }
+  }
+}
+
+// --- Editor Area ---
+.editor-area {
+  @include flex-col;
+  flex: 1;
+  min-height: 0;
+  border-bottom: 1px solid $color-border;
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  @include flex-between;
+  padding: $space-3 $space-4;
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+  gap: $space-3;
+  flex-wrap: wrap;
+
+  &__left {
+    @include flex-center;
+    gap: $space-3;
+  }
+
+  &__right {
+    @include flex-center;
+    gap: $space-2;
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    color: $color-text-dim;
+    @include mono;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}
+
+.monaco-wrapper {
+  flex: 1;
+  min-height: 200px;
+  overflow: hidden;
+
+  @include tablet { min-height: 280px; }
+  @include desktop { min-height: 0; }
+}

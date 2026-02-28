@@ -1,0 +1,89 @@
+// ==============================================
+// _hint-panel.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hint-panel {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  max-height: 200px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  &--open { max-height: 320px; }
+
+  &__header {
+    @include flex-between;
+    padding: $space-3 $space-4;
+    cursor: pointer;
+    min-height: 44px;
+
+    &:hover { background: var(--color-surface-2); }
+  }
+
+  &__title {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-text-muted;
+    @include flex-center;
+    gap: $space-2;
+
+    &-icon { color: var(--color-warning); }
+  }
+
+  &__body {
+    padding: $space-4;
+    overflow-y: auto;
+    max-height: 240px;
+    @include scrollbar;
+  }
+
+  &__message {
+    font-size: $font-size-sm;
+    color: var(--color-text);
+    line-height: 1.7;
+    background: rgba(var(--color-warning-rgb), 0.06);
+    border-left: 3px solid var(--color-warning);
+    padding: $space-3 $space-4;
+    border-radius: 0 $radius-md $radius-md 0;
+  }
+
+  &__loading {
+    @include flex-center;
+    gap: $space-3;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    padding: $space-4;
+
+    &-dots {
+      @include flex-center;
+      gap: $space-1;
+
+      span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--color-warning);
+        animation: bounce 1.2s infinite;
+
+        &:nth-child(2) { animation-delay: 0.2s; }
+        &:nth-child(3) { animation-delay: 0.4s; }
+      }
+    }
+  }
+
+  &__empty {
+    font-size: $font-size-sm;
+    color: var(--color-text-dim);
+    padding: $space-4;
+    text-align: center;
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.4; }
+  40%           { transform: scale(1.2); opacity: 1; }
+}

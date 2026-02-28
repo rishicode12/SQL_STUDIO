@@ -1,0 +1,89 @@
+// ==============================================
+// _buttons.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  @include btn-base;
+  @include focus-ring;
+
+  // Primary
+  &--primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+
+    &:hover:not(:disabled) {
+      background: var(--color-primary-hover);
+      box-shadow: $shadow-glow-primary;
+    }
+  }
+
+  // Success
+  &--success {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-weight: 700;
+
+    &:hover:not(:disabled) {
+      background: var(--color-accent-hover);
+      box-shadow: $shadow-glow-accent;
+    }
+  }
+
+  // Ghost
+  &--ghost {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+
+    &:hover:not(:disabled) {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-color: var(--color-border-light);
+    }
+  }
+
+  // Danger
+  &--danger {
+    background: var(--color-error-dim);
+    color: var(--color-error);
+    border: 1px solid rgba(var(--color-error-rgb), 0.3);
+
+    &:hover:not(:disabled) {
+      background: rgba(var(--color-error-rgb), 0.2);
+    }
+  }
+
+  // Warning (hint button)
+  &--warning {
+    background: rgba(var(--color-warning-rgb), 0.12);
+    color: var(--color-warning);
+    border: 1px solid rgba(var(--color-warning-rgb), 0.3);
+
+    &:hover:not(:disabled) {
+      background: rgba(var(--color-warning-rgb), 0.2);
+    }
+  }
+
+  // Sizes
+  &--sm {
+    padding: $space-2 $space-3;
+    font-size: $font-size-xs;
+    min-height: 36px;
+  }
+
+  &--lg {
+    padding: $space-4 $space-8;
+    font-size: $font-size-base;
+    min-height: 52px;
+  }
+
+  // Icon only
+  &--icon {
+    padding: $space-2;
+    min-height: 36px;
+    width: 36px;
+    border-radius: $radius-md;
+  }
+}

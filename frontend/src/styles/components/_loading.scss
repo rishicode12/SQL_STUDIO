@@ -1,0 +1,51 @@
+// ==============================================
+// _loading.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(var(--color-primary-rgb), 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+
+  &--sm { width: 14px; height: 14px; }
+  &--lg { width: 32px; height: 32px; border-width: 3px; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.page-loading {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-4;
+  min-height: 40vh;
+  color: var(--color-text-muted);
+  font-size: $font-size-sm;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-2) 25%,
+    rgba(var(--color-border-rgb), 0.4) 50%,
+    var(--color-surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: $radius-md;
+
+  &--text { height: 1em; margin-bottom: $space-2; }
+  &--card { height: 160px; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

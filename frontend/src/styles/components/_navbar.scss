@@ -1,0 +1,87 @@
+// ==============================================
+// _navbar.scss
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-overlay;
+  background: rgba(var(--color-surface-rgb), 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 $space-4;
+
+  @include tablet { padding: 0 $space-8; }
+
+  &__inner {
+    @include flex-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 60px;
+  }
+
+  &__logo {
+    @include flex-center;
+    gap: $space-2;
+    font-weight: 700;
+    font-size: $font-size-lg;
+    color: var(--color-text);
+    text-decoration: none;
+
+    &-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      border-radius: $radius-md;
+      @include flex-center;
+      font-size: $font-size-sm;
+      font-family: $font-mono;
+      color: var(--color-bg);
+      font-weight: 700;
+    }
+
+    &-text {
+      .cipher { color: var(--color-primary); }
+      .sql    { color: var(--color-accent); }
+    }
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: $space-3;
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: $font-size-md;
+      cursor: pointer;
+      padding: $space-2;
+      color: var(--color-text);
+      transition: $transition-fast;
+
+      &:hover { color: var(--color-primary); }
+    }
+  }
+
+  &__user {
+    font-size: $font-size-sm;
+    color: var(--color-text-muted);
+    @include flex-center;
+    gap: $space-2;
+
+    &-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
