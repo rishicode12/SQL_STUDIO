@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register, login } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
 
 const AuthPage = ({ mode }) => {
+  // derive from prop but keep local state for the switch links
   const [isLogin, setIsLogin] = useState(mode === 'login');
+
+  // keep state in sync when route prop changes (navbar links)
+  React.useEffect(() => {
+    setIsLogin(mode === 'login');
+  }, [mode]);
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -108,9 +114,9 @@ const AuthPage = ({ mode }) => {
 
         <div className="auth-card__switch">
           {isLogin ? (
-            <>Don't have an account? <a onClick={() => setIsLogin(false)}>Sign up</a></>
+            <>Don't have an account? <Link to="/register" onClick={() => setIsLogin(false)}>Sign up</Link></>
           ) : (
-            <>Already have an account? <a onClick={() => setIsLogin(true)}>Sign in</a></>
+            <>Already have an account? <Link to="/login" onClick={() => setIsLogin(true)}>Sign in</Link></>
           )}
         </div>
       </div>
