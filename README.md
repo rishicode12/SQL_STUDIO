@@ -14,7 +14,7 @@ A browser-based SQL learning platform where students can practice SQL queries ag
 ## Features
 
 - **Assignment Listing** — Browse SQL assignments by difficulty (Easy / Medium / Hard)
-- **Monaco SQL Editor** — VS Code-quality editor with syntax highlighting, autocomplete, Ctrl+Enter to run
+- **Monaco SQL Editor** — VS Code-quality editor with syntax highlighting, autocomplete
 - **Real-time Query Execution** — Queries run against a live PostgreSQL sandbox
 - **Schema Viewer** — See table schemas and sample data before writing queries
 - **AI Hint System** — Get contextual hints (not solutions) powered by OpenAI GPT-4o-mini
